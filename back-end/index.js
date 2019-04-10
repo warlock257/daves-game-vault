@@ -1,14 +1,15 @@
 const express = require('express');
+const app = express();
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const axios = require('axios')
 require('dotenv').config()
 const PORT = process.env.PORT || 8080;
-
-const app = express();
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+const cors = require('cors');
+app.use(cors({
+    origin:"http://localhost:3000"
+}))
 
 //fetch Steam info
 let ownedSteamGames = [];
