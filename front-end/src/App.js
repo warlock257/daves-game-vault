@@ -65,13 +65,22 @@ componentWillMount=() =>{
   })
 }
 
+resetInput = ()=>{
+  this.setState({
+    SteamFiltered:[],
+    XboxFiltered:[],
+    playstationfiltered:[],
+    pcOtherFiltered:[]
+  })
+}
+
 filterGames = (ev) =>{
   let SteamFiltered = this.state.steamGamesOwned;
   let XboxFiltered = this.state.xboxGamesOwned;
   let playstationfiltered = this.state.playstationGamesOwned;
   let pcOtherFiltered = this.state.pcOtherGamesOwned;
 
-  XboxFiltered = XboxFiltered.filter((arr) =>{
+  SteamFiltered = SteamFiltered.filter((arr) =>{
     let searchString = arr.name.toLowerCase()
     return searchString.indexOf(ev.target.value.toLowerCase()) !== -1
   })
@@ -81,41 +90,69 @@ filterGames = (ev) =>{
     return searchString.indexOf(ev.target.value.toLowerCase()) !== -1
   })
 
+  XboxFiltered = XboxFiltered.filter((arr) =>{
+    let searchString = arr.name.toLowerCase()
+    return searchString.indexOf(ev.target.value.toLowerCase()) !== -1
+  })
+
+  playstationfiltered = playstationfiltered.filter((arr) =>{
+    let searchString = arr.title.toLowerCase()
+    return searchString.indexOf(ev.target.value.toLowerCase()) !== -1
+  })
+
   this.setState({
+    SteamFiltered:SteamFiltered,
+    pcOtherFiltered:pcOtherFiltered,
     XboxFiltered:XboxFiltered,
-    pcOtherFiltered:pcOtherFiltered
+    playstationfiltered:playstationfiltered
   })
 }
 
   render() {
-    let steamGamesMap = []
-
-    let xboxGamesMap = this.state.XboxFiltered.map((object, index) =>{
-      return (<p>{this.state.XboxFiltered[index].name}</p>)
+    let steamGamesMap = this.state.SteamFiltered.map((object, index) =>{
+      return (<p>{this.state.SteamFiltered[index].name}</p>)
     })
-
-    let playstationGamesMap = []
 
     let PcOtherMap = this.state.pcOtherFiltered.map((object, index) =>{
       return (<p>{this.state.pcOtherFiltered[index].title}</p>)
     })
 
+    let xboxGamesMap = this.state.XboxFiltered.map((object, index) =>{
+      return (<p>{this.state.XboxFiltered[index].name}</p>)
+    })
+
+    let playstationGamesMap = this.state.playstationfiltered.map((object, index) =>{
+      return (<p>{this.state.playstationfiltered[index].title}</p>)
+    })
+
+
         return (
       <div className="App">
           <h1>Dave's Video Game Library</h1>
           <input type="text" placeholder="Search games here" name="searchBar" onChange={this.filterGames} />
-          
+          <button onClick={this.resetInput}>Reset</button>
+
           <div className="lowerHalf">
 
-          <div className="xboxResults">
-            <h3>Xbox</h3>
-              <div>{xboxGamesMap}</div>
+          <div className="steamResults">
+            <h3>Steam</h3>
+              <div>{steamGamesMap}</div>
           </div>
 
           <div className="PcOtherResults">
           <h3>PC Other</h3>
             <div>{PcOtherMap}</div>
-        </div>
+          </div>
+
+          <div className="xboxResults">
+          <h3>Xbox</h3>
+            <div>{xboxGamesMap}</div>
+          </div>
+
+          <div className="platstationResults">
+          <h3>Playstation</h3>
+            <div>{playstationGamesMap}</div>
+          </div>
               
           </div>
       </div>
