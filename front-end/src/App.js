@@ -72,6 +72,7 @@ resetInput = ()=>{
     playstationfiltered:[],
     pcOtherFiltered:[]
   })
+  document.getElementById("searchBar").value = ""
 }
 
 filterGames = (ev) =>{
@@ -129,7 +130,7 @@ filterGames = (ev) =>{
         return (
       <div className="App">
           <h1>Dave's Video Game Library</h1>
-          <input type="text" placeholder="Search games here" name="searchBar" onChange={this.filterGames} />
+          <input type="text" placeholder="Search games" name="searchBar" id="searchBar" onChange={this.filterGames} />
           <button onClick={this.resetInput}>Reset</button>
 
           <div className="lowerHalf">
