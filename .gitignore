@@ -1,9 +1,13 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+*/node_modules
 /.pnp
 .pnp.js
+/back-end/.env
+steam api key.txt
+xbox api key.txt
+Playstation games list.txt
 
 # testing
 /coverage
