@@ -129,31 +129,35 @@ filterGames = (ev) =>{
 
         return (
       <div className="App">
-          <h1>Dave's Video Game Library</h1>
-          <input type="text" placeholder="Search games" name="searchBar" id="searchBar" onChange={this.filterGames} />
-          <button onClick={this.resetInput}>Reset</button>
+          <div className="upperSection">
+            
+            <div className="inputAndButton">
+              <input type="text" placeholder="Search games" name="searchBar" id="searchBar" onChange={this.filterGames} />
+              <button onClick={this.resetInput}>Reset</button>
+            </div>
+          </div>
 
           <div className="lowerHalf">
 
-          <div className="steamResults">
-            <h3>Steam</h3>
-              <div>{steamGamesMap}</div>
-          </div>
+            <div className="steamResults">
+              <h3>Steam</h3>
+                <div>{steamGamesMap}</div>
+            </div>
 
-          <div className="PcOtherResults">
-          <h3>PC Other</h3>
-            <div>{PcOtherMap}</div>
-          </div>
+            <div className="PcOtherResults">
+            <h3>PC Other</h3>
+              <div>{PcOtherMap}</div>
+            </div>
 
-          <div className="xboxResults">
-          <h3>Xbox</h3>
-            <div>{xboxGamesMap}</div>
-          </div>
+            <div className="xboxResults">
+            <h3>Xbox</h3>
+              <div>{xboxGamesMap}</div>
+            </div>
 
-          <div className="platstationResults">
-          <h3>Playstation</h3>
-            <div>{playstationGamesMap}</div>
-          </div>
+            <div className="platstationResults">
+            <h3>Playstation</h3>
+              <div>{playstationGamesMap}</div>
+            </div>
               
           </div>
       </div>
