@@ -11,6 +11,9 @@ app.use(cors({
     origin:"http://localhost:3000"
 }))
 
+//public folder
+app.use(express.static('./public'));
+
 //fetch Steam info
 let ownedSteamGames = [];
 let ownedSteamGamesCount = 0;

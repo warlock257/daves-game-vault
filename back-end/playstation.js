@@ -926,5 +926,18 @@ module.exports = [
 {
     title:"Castlevania: SotN",
     system:"PS3"
+},
+{
+    title:"Devil May Cry 5",
+    system:"PS4"
+},
+{
+    title:"Borderlands: The Handsome Collection",
+    system:"PS4"
+},
+{
+    title:"Sonic Mania",
+    system:"PS4"
 }
+
 ]
