@@ -17,7 +17,7 @@ state = {
 
 componentWillMount=() =>{
   //steam
-  axios.get("http://localhost:8080/getOwnedSteamGames")
+  axios.get("/getOwnedSteamGames")
   .then((res)=>{
     //console.log(res.data)
     this.setState({
@@ -29,7 +29,7 @@ componentWillMount=() =>{
   })
 
   //xbox
-  axios.get("http://localhost:8080/getOwnedXboxGames")
+  axios.get("/getOwnedXboxGames")
   .then((res)=>{
     //console.log(res.data)
     this.setState({
@@ -41,7 +41,7 @@ componentWillMount=() =>{
   })
 
   //playstation
-  axios.get("http://localhost:8080/OwnedPlaystationGames")
+  axios.get("/OwnedPlaystationGames")
   .then((res)=>{
     //console.log(res.data)
     this.setState({
@@ -53,7 +53,7 @@ componentWillMount=() =>{
   })
 
   //pc other
-  axios.get("http://localhost:8080/OwnedPCOther")
+  axios.get("/OwnedPCOther")
   .then((res)=>{
     //console.log(res.data)
     this.setState({
